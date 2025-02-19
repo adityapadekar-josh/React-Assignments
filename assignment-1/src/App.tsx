@@ -2,7 +2,6 @@ import { useState } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import { Todo, TodoFormData } from "./types/todo";
-import "./App.css";
 
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -24,8 +23,8 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <h1>Todo App</h1>
+    <div className="w-[32rem] p-8">
+      <h1 className="text-center mb-8 text-3xl">Todo App</h1>
       <TodoForm addTodo={addTodo} />
       <TodoList
         todos={todos}

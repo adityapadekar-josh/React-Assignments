@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Todo } from "../types/todo";
-import "./TodoItem.css";
 
 interface TodoItemProps {
   todo: Todo;
@@ -16,29 +15,32 @@ const TodoItem: React.FC<TodoItemProps> = ({
   const [showDetails, setShowDetails] = useState<boolean>(false);
 
   return (
-    <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
-      <div className="todo-header">
+    <div className="border border-gray-300 rounded-md p-4 bg-white">
+      <div className="flex items-center gap-4">
         <input
           type="checkbox"
           checked={todo.completed}
           onChange={() => onToggleComplete(todo)}
-          className="todo-checkbox"
+          className="w-5 h-5 cursor-pointer"
         />
-        <h3 className="todo-title">{todo.title}</h3>
-        <div className="todo-actions">
+        <h3 className="flex-grow">{todo.title}</h3>
+        <div className="flex gap-2">
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="details-button"
+            className="px-2 py-1 border-none rounded-md cursor-pointer text-white bg-blue-500 hover:bg-blue-700"
           >
             {showDetails ? "Hide Details" : "Show Details"}
           </button>
-          <button onClick={() => onDelete(todo)} className="delete-button">
+          <button
+            onClick={() => onDelete(todo)}
+            className="px-2 py-1 border-none rounded-md cursor-pointer text-white bg-red-500 hover:bg-red-700"
+          >
             Delete
           </button>
         </div>
       </div>
       {showDetails && (
-        <div className="todo-details">
+        <div className="mt-4 pt-4 border-t border-gray-200">
           <p>{todo.description || "No description provided."}</p>
         </div>
       )}

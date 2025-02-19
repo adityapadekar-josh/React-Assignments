@@ -1,6 +1,5 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { TodoFormData } from "../types/todo";
-import "./TodoForm.css";
 
 interface TodoFormProps {
   addTodo: (todo: TodoFormData) => void;
@@ -22,7 +21,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
   };
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-4 mb-8" onSubmit={handleSubmit}>
       <input
         type="text"
         value={title}
@@ -30,7 +29,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
           setTitle(e.target.value)
         }
         placeholder="Todo title"
-        className="todo-input"
+        className="p-2 border border-gray-300 rounded-md text-base"
       />
       <textarea
         value={description}
@@ -38,9 +37,12 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
           setDescription(e.target.value)
         }
         placeholder="Todo description"
-        className="todo-textarea"
+        className="p-2 border border-gray-300 rounded-md text-base min-h-[100px] resize-y"
       />
-      <button type="submit" className="add-button">
+      <button
+        type="submit"
+        className="px-4 py-2 bg-green-600 text-white rounded-md cursor-pointer text-base hover:bg-green-700"
+      >
         Add Todo
       </button>
     </form>

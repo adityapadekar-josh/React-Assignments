@@ -1,7 +1,6 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 import { Todo } from "../types/todo";
-import "./TodoList.css";
 
 interface TodoListProps {
   todos: Todo[];
@@ -15,11 +14,11 @@ const TodoList: React.FC<TodoListProps> = ({
   onToggleComplete,
 }) => {
   if (todos.length === 0) {
-    return <p className="no-todos">No todos yet. Add some!</p>;
+    return <p className="text-center">No todos yet. Add some!</p>;
   }
 
   return (
-    <div className="todo-list">
+    <div className="flex flex-col gap-4">
       {todos.map((todo, index) => (
         <TodoItem
           key={index}
