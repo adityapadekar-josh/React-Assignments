@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from "react";
-import { TodoFormData } from "src/types/todo";
-import TodoForm from "src/components/TodoForm";
+import { TodoFormData } from "src/assignment-1/types/todo";
+import TodoForm from "src/assignment-1/components/TodoForm";
 
 interface TodoFormContainerProps {
   addTodo: (todo: TodoFormData) => void;
