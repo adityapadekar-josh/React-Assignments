@@ -1,25 +1,20 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
-import { TodoFormData } from "../types/todo";
+import React, { ChangeEvent, Dispatch, FormEvent, SetStateAction } from "react";
 
 interface TodoFormProps {
-  addTodo: (todo: TodoFormData) => void;
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  title: string;
+  setTitle: Dispatch<SetStateAction<string>>;
+  description: string;
+  setDescription: Dispatch<SetStateAction<string>>;
 }
 
-const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (title.trim() === "") return;
-
-    addTodo({ title, description });
-
-    setTitle("");
-    setDescription("");
-  };
-
+const TodoForm: React.FC<TodoFormProps> = ({
+  handleSubmit,
+  title,
+  setTitle,
+  description,
+  setDescription,
+}) => {
   return (
     <form className="flex flex-col gap-4 mb-8" onSubmit={handleSubmit}>
       <input
