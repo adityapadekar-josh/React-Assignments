@@ -1,4 +1,4 @@
-import TodoContainer from "./components/TodoContainer";
+import TodoContainer from "src/components/TodoContainer";
 
 const App = () => {
   return (
